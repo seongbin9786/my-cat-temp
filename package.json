@@ -1,0 +1,11 @@
+{
+    "name": "my-cat-temp",
+    "version": "0.0.1",
+    "description": "vanilla JS를 고양이 사진첩 만들기",
+    "type": "module",
+    "scripts": {
+        "build": "cp -R ./src ./public/dist"
+    },
+    "author": "seongbin9786@gmail.com",
+    "license": "MIT"
+}

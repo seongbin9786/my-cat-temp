@@ -53,9 +53,14 @@ export class App extends Component {
         });
     }
 
-    // 해당 folderId 뒤는 잘라내야 함
     goToParentDirectory() {
         const { parentFolders } = this.state;
+
+        // 최상위 부모 상태일 때는 무시
+        if (parentFolders.length === 1) {
+            return;
+        }
+
         const nextParentFolders = [...parentFolders];
         const { id: parentId } = nextParentFolders[nextParentFolders.length - 2]; // 끝에서 2번째 위치가 대상
         nextParentFolders.pop(); // FIXME: pop() 보다 좋은 방법 =?

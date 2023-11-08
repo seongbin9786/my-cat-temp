@@ -4,6 +4,8 @@ import { Loading } from "./Loading.js";
 
 export class Folder extends Component {
 
+    #listener;
+
     // 이미지를 열고 닫을 때 굳이 리-렌더할 필요 없음.
     shouldComponentUpdate(nextProps) {
         if (this.props.loading !== nextProps.loading) {
@@ -15,6 +17,22 @@ export class Folder extends Component {
         }
 
         return false;
+    }
+
+    componentDidMount() {
+        this.#listener = this.handleBackspace.bind(this);
+        window.addEventListener('keydown', this.#listener);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('keydown', this.#listener);
+    }
+
+    handleBackspace(e) {
+        if (e.key !== 'Backspace') {
+            return;
+        }
+        this.props.goToParentDirectory();
     }
 
     render() {

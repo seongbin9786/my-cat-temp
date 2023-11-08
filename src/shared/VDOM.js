@@ -191,7 +191,7 @@ export class VDOM {
 
             const shouldRerender = this.#component.shouldComponentUpdate(nextDOMSpec.props);
             if (!shouldRerender) {
-                alert('skipped re-render:' + this.#domSpec.type);
+                debug(`skipped re-render: [Component: ${this.#domSpec.type}].shouldComponentUpdate = false`);
                 return;
             }
 

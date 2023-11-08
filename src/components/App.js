@@ -21,7 +21,6 @@ export class App extends Component {
     handleBreadcrumbClick(folderId) {
         const { parentFolders } = this.state;
         const targetIdx = parentFolders.findIndex(({ id }) => id === folderId);
-        console.log(targetIdx, parentFolders.slice(0, targetIdx + 1));
 
         // CASE 1. 가장 우측의 폴더(현재 폴더)를 클릭한 경우 무시됨
         if (targetIdx === parentFolders.length - 1) {
@@ -106,8 +105,6 @@ export class App extends Component {
             currentImagePath,
         } = this.state;
         const currentFolder = allFolders[currentId]; // object key로 관리한다.
-
-        console.log("App state:", this.state);
 
         return jsx`
             <div>

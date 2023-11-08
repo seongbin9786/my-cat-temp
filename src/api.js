@@ -1,29 +1,28 @@
 const API_END_POINT = "https://kdt-frontend.cat-api.programmers.co.kr";
 
-/*
-[
-  {
-    "id": "1",
-    "name": "노란고양이",
-    "type": "DIRECTORY",
-    "filePath": null,
-    "parent": null
-  },
-  {
-    "id": "3",
-    "name": "까만고양이",
-    "type": "DIRECTORY",
-    "filePath": null,
-    "parent": null
-  }
-]
-*/
-export const fetchFolderById = async (folderId = "") => {
-    const response = await fetch(`${API_END_POINT}${folderId}`);
+const CDN_END_POINT = "https://cdn.roto.codes";
 
-    if (!response.ok) {
-        throw new Error("고양이 폴더 목록을 불러오던 중 오류가 발생했습니다.");
+export class API {
+    imageUrl(filePath) {
+        return `${API_END_POINT}/static${filePath}`;
     }
 
-    return response.json();
-};
+    iconUrl(type) {
+        return `${CDN_END_POINT}/images/${type.toLowerCase()}.png`;
+    }
+
+    loadingUrl() {
+        return "https://cdn.roto.codes/images/nyan-cat.gif";
+    }
+
+    async fetchFolderById(folderId) {
+        const url = `${API_END_POINT}/${folderId === '0' ? "" : folderId}`;
+        const response = await fetch(url);
+    
+        if (!response.ok) {
+            throw new Error("고양이 폴더 목록을 불러오던 중 오류가 발생했습니다.");
+        }
+    
+        return response.json();
+    }
+}

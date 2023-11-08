@@ -1,0 +1,9 @@
+{
+    "public": ".",
+    "rewrites": [
+        { "source": "/:filename.css", "destination": "/:filename.css" },
+        { "source": "/:filename.js", "destination": "/:filename.js" },
+        { "source": "/:path", "destination": "/public/:path" },
+        { "source": "/", "destination": "/public/index.html" }
+    ]
+}

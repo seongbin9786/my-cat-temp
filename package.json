@@ -4,8 +4,15 @@
     "description": "vanilla JS를 고양이 사진첩 만들기",
     "type": "module",
     "scripts": {
-        "build": "cp -R ./src ./public/dist"
+        "build": "esbuild src/index.js --bundle --outfile=dist/index.js",
+        "dev": "serve --config ./serve.json"
     },
     "author": "seongbin9786@gmail.com",
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "@seongbin9786/my-renderer": "^0.0.2"
+    },
+    "devDependencies": {
+        "esbuild": "^0.19.7"
+    }
 }

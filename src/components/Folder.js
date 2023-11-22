@@ -1,5 +1,4 @@
-import { Component } from "../shared/Component.js";
-import { createDOMSpec as jsx } from "../shared/Parser.js";
+import { Component, jsx } from "@seongbin9786/my-renderer";
 import { Loading } from "./Loading.js";
 
 export class Folder extends Component {

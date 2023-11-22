@@ -1,6 +1,4 @@
-import { Component } from "../shared/Component.js";
-import { createDOMSpec as jsx } from "../shared/Parser.js";
-import { Loading } from "./Loading.js";
+import { Component, jsx } from "@seongbin9786/my-renderer";
 
 export class App extends Component {
     state = {

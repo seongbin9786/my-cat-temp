@@ -1,9 +1,6 @@
 import { Component, jsx } from "@seongbin9786/my-renderer";
 
 export class File extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     handleClick() {
         const { type } = this.props;
